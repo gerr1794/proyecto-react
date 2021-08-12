@@ -1,33 +1,51 @@
-import React from 'react'
+import React from 'react';
 
-class ItemCount extends React.Component {
-    constructor(props) {
-    super(props)
-    this.state = {
-        contador:1
-    }
-    }
+import { useState, useEffect } from 'react';
 
-    agregar() {
-    this.setState({contador:this.state.contador+1})
+export default function ItemCount({ stock, initial, onAdd }) {
+  const [count, setCount] = useState(initial);
+
+  const increase = () => {
+    if (stock > count) {
+      setCount(prevState => prevState + 1);
     }
-    quitar() {
-    let contador = this.state.contador
-    if(contador>1) {
-        this.setState({contador:contador-1})
+  };
+
+  const decrease = () => {
+    if (count > 0) {
+      setCount(prevState => prevState - 1);
     }
-    }
-    render() {
-    return (
-        <div>
-        <h3>Fernet Branca 750ml</h3>
-        <h3>{this.state.contador}</h3>
-        <input type="button" onClick={this.agregar.bind(this)} value="Agregar" />
-        <input type="button" onClick={this.quitar.bind(this)} value="Quitar" /><br></br><br></br>
-        <input type="button" value="Agregar al carrito" />
-        </div>
-    )
+  };
+
+  const agregarAlCarrito = () => {
+    //onAdd(count);
+  };
+
+  return (
+    <>
+      <div className="itemCountContainer">
+        <button
+          className="button is-warning is-rounded addUp"
+          disabled={count < 1}
+          onClick={() => decrease()}
+        >
+          Quitar
+        </button>
+        <span>....{count}....</span>
+        <button
+          disabled={count >= stock}
+          className="button is-warning is-rounded takeOut"
+          onClick={() => increase()}
+        >
+          Agregar
+        </button>
+      </div>
+      <button
+        onClick={() => agregarAlCarrito()}
+        disabled={count < 1}
+      >
+        Agregar al carrito
+      </button>
+    </>
+  );
 }
-
-}
-export default ItemCount;
