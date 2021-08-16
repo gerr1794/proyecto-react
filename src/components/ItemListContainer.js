@@ -1,8 +1,12 @@
-const ItemListContainer = (props) => {
+import React from 'react';
+import ItemList from './ItemList';
 
-    //console.log(props)
-
-    return <p>Hola! {props.greeting}</p>
+const ItemListContainer = ({titulo}) => {
+    return (
+        <>
+        <h1>{titulo}</h1>
+        <ItemList />
+        </>
+    )
 }
-
 export default ItemListContainer;

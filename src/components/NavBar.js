@@ -9,6 +9,7 @@ export default function NavBar() {
       <h2>Productos</h2>
       <h2>Promociones</h2>
       <h2>Contacto</h2>
+      <CartWidget />
     </>
   );
 }
