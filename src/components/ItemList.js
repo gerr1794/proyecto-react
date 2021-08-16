@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import Item from './Item';
+const ItemList = () => {
 const[listaItems, setListaItems] = useState([])
 const productos = [
   {
@@ -38,9 +39,11 @@ ejemploPromise
   <div>
    {
      listaItems.map(productos => {
-       <Item key ={productos.id} titulo={productos.titulo} precio={productos.precio} />
+       <Item key={productos.id} titulo={productos.titulo} precio={productos.precio} />
        })
     }
   </div>
   </>
  )
+  }
+  export default ItemList;

@@ -2,7 +2,6 @@ import React from 'react';
 import NavBar from './components/NavBar';
 import ItemListContainer from './components/ItemListContainer';
 import ItemCount from './components/ItemCount';
-import ItemListContainer1 from './components/Item';
 
 export default function App() {
   return (
