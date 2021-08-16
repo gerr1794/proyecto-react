@@ -10,4 +10,4 @@ function Item({ id, titulo, precio }) {
     </div>
   );
 }
- export default Item;
+export default Item;

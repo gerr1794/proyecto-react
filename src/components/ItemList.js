@@ -3,6 +3,7 @@ import Item from './Item';
 const ItemList = () => {
 const[listaItems, setListaItems] = useState([])
 const productos = [
+
   {
     id:'1',
     titulo: 'Jaggermeister 750ml',
@@ -37,13 +38,16 @@ ejemploPromise
  return (
   <>
   <div>
-   {
-     listaItems.map(productos => {
-       <Item key={productos.id} titulo={productos.titulo} precio={productos.precio} />
-       })
-    }
+  {
+    listaItems.map(productos => {
+      return (
+      <Item key={productos.id} titulo={productos.titulo} precio={productos.precio} />
+    )})
+  }
   </div>
   </>
- )
-  }
-  export default ItemList;
+);
+
+}
+
+export default ItemList;
