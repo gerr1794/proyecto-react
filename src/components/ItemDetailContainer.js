@@ -50,46 +50,45 @@
 // }
 // export default ItemDetailContainer;
 
-import React, { useState } from 'react';
+
+import React, {useState} from 'react';
 import ItemDetail from './ItemDetail';
 const ItemDetailContainer = () => {
-  const [detalle1Producto, setDetalle1Producto] = useState({
-    img: '',
+  const [detalle1Producto, setDetalle1Producto] = useState ({
+    img: 'https://img.lalr.co/cms/2021/07/14151957/Jagermeister-AL.jpg',
     titulo: '',
     precio: ''
   })
   const producto =
-    {
-      img: 'https://www.google.com.ar/url?sa=i&url=https%3A%2F%2Fcocteleriacreativa.com%2Fcocteles%2Fjagermeister-shot&psig=AOvVaw2VbFN9e-3ePvR0NkQG0xUC&ust=1629341600265000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCNDsieXIufICFQAAAAAdAAAAABAE',
-      titulo: 'Jaggermeister 750ml',
-      precio: '$2500'
-    };
-​
-  const getItem = new Promise((resolve, reject) => {
+  {
+    img: '',
+    titulo: 'Jaggermeister 750ml',
+    precio: '$2800'
+  };
+
+  const getItem = new Promise ((resolve, reject) => {
     setTimeout(() => {
       console.log(producto)
       resolve(producto)
     }, 2000)
   })
-​
+
   getItem
-    .then((data) => {
-      console.log(data)
-      setDetalle1Producto(data)
-    })
-    .catch((error) => {
-      console.log(error)
-    })
-​
+  .then((data) => {
+    console.log(data)
+    setDetalle1Producto(data)
+  })
+  .catch((error) => {
+    console.log(error)
+  })
+
   return (
     <>
       <div>
-      <ItemDetail img={detalle1Producto.img} titulo={detalle1Producto.titulo} precio={detalle1Producto.precio} />
+      <ItemDetail img={detalle1Producto.img} titulo={detalle1Producto.titulo} precio={detalle1Producto.precio}/>
       </div>
     </>
-  );
-​
+  )
 }
-​
-export default ItemDetailContainer;
 
+export default ItemDetailContainer;
