@@ -1,53 +1,36 @@
-import React, {useState} from 'react';
+import data from '../../src/data/data';
 import Item from './Item';
+import React, {useState, useEffect} from 'react'
+
 const ItemList = () => {
-const[listaItems, setListaItems] = useState([])
-const productos = [
+  
+  const [productos, setProductos] = useState ([])
+  const [cargando, setCargando] = useState(true)
 
-  {
-    id:'1',
-    titulo: 'Jaggermeister 750ml',
-    precio: '$2500'
-  },
-  {
-    id:'2',
-    titulo: 'Jack Daniels 750 ml',
-    precio: '$4500'
-  },
-  {
-    id:'3',
-    titulo: 'Johnnie Walker Black Label 750ml',
-    precio: '$3500'
-  },
-];
+  useEffect(()=>{
+    const productos = () => {
+      return new Promise((resolve, reject)=>{
+        setTimeout(()=>{
+          resolve(data)
+        },4000)
+      })
+    }
+    productos().then((items)=>{
+      setProductos(items)
+      setCargando(false)
+    })
+  },[])
 
-const ejemploPromise = new Promise((resolve, reject) => {
-  setTimeout(() => {
-    resolve(productos)
-  }, 5000)
-})
+  return(
+    <>
+    { cargando ? <h2>ESPERE UN MOMENTO MIENTRAS SE CARGAN LOS PRODUCTOS!</h2> :
+    productos.map((producto) =>
+      <Item key={producto.id} titulo={producto.titulo} precio={producto.precio} stock={producto.stock} imagen={producto.imagen} categoria={producto.categoria} id={producto.id} />
 
-ejemploPromise
- .then((data) => {
-   setListaItems(data)
- })
- .catch((error) => {
-   console.log(error)
- })
-
- return (
-  <>
-  <div>
-  {
-    listaItems.map(productos => {
-      return (
-      <Item key={productos.id} titulo={productos.titulo} precio={productos.precio} />
-    )})
-  }
-  </div>
-  </>
-);
-
+    )
+    }
+    </>
+  )
 }
 
 export default ItemList;

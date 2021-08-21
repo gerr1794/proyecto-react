@@ -1,7 +1,6 @@
 import React from 'react';
 import NavBar from './components/NavBar';
 import ItemListContainer from './components/ItemListContainer';
-import ItemCount from './components/ItemCount';
 import ItemDetailContainer from './components/ItemDetailContainer';
 import {
   BrowserRouter,
@@ -18,18 +17,16 @@ export default function App() {
       <NavBar />
       <Switch>
       <Route path="/" exact>
-        <ItemListContainer greeting= "¿Como estas?" />
+        <ItemListContainer />
       </Route>
 
-      <Route path="/productos" exact>
-        <ItemListContainer greeting= "¿Como estas?" />
+      <Route path="/:categoria/:id" exact>
+        <ItemDetailContainer titulo='Nuestros Productos' subtitulo='asd' />
       </Route>
 
 
 
 
-      <ItemListContainer greeting= "¿Como estas?" />
-      <ItemCount stock="10" initial="1" />
       <ItemDetailContainer />
       </Switch>
     </div>
