@@ -6,7 +6,7 @@ const data =[
               precio: '$2500',
               stock: '10',
               imagen: './imagenes/jagger.jpg',
-              categoria: 'productos'
+              categoria: 'aperitivos'
             },
             {
               id:'2',
@@ -14,7 +14,7 @@ const data =[
               precio: '$4500',
               stock: '10',
               imagen: './imagenes/jackdanields1.jpg',
-              categoria: 'productos'
+              categoria: 'whiskys'
             },
             {
               id:'3',
@@ -22,7 +22,7 @@ const data =[
               precio: '$3500',
               stock: '10',
               imagen: './imagenes/whiskyjohnnie.jpg',
-              categoria: 'productos'
+              categoria: 'whiskys'
             },
             {
               id:'4',
@@ -30,7 +30,7 @@ const data =[
               precio: '$1800',
               stock: '10',
               imagen: './imagenes/johnniewalkerred.jpg',
-              categoria: 'productos'
+              categoria: 'whiskys'
             },
             {
               id:'5',
@@ -38,7 +38,7 @@ const data =[
               precio: '$850',
               stock: '10',
               imagen: './imagenes/fernetbranca.jpg',
-              categoria: 'productos'
+              categoria: 'aperitivos'
             },
             {
               id:'6',
@@ -46,7 +46,7 @@ const data =[
               precio: '$1500',
               stock: '10',
               imagen: './imagenes/vodkaAbsolut1.webp',
-              categoria: 'productos'
+              categoria: 'vodkas'
             },
             {
               id:'7',
@@ -54,7 +54,7 @@ const data =[
               precio: '$1900',
               stock: '10',
               imagen: './imagenes/malibu.jpg',
-              categoria: 'productos'
+              categoria: 'aperitivos'
             },
             {
               id:'8',
@@ -62,14 +62,15 @@ const data =[
               precio: '$1700',
               stock: '10',
               imagen: './imagenes/josecuervo.jpg',
-              categoria: 'productos'
+              categoria: 'whiskys'
             },
-            {id:'9',
-            titulo: 'Gin Bombay 750ml',
-            precio: '$2200',
-            stock: '10',
-            imagen: './imagenes/bombay.jpg',
-            categoria: 'productos'
+            {
+              id:'9',
+              titulo: 'Gin Bombay 750ml',
+              precio: '$2200',
+              stock: '10',
+              imagen: './imagenes/bombay.jpg',
+              categoria: 'gin'
             },
             {
               id:'10',
@@ -77,9 +78,8 @@ const data =[
               precio: '$2500',
               stock: '10',
               imagen: './imagenes/tanqueray1.jpg',
-              categoria: 'productos'
+              categoria: 'gin'
             }
-          
           ]
 
 export default data;

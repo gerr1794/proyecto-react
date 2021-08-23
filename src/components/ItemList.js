@@ -1,11 +1,14 @@
 import data from '../../src/data/data';
 import Item from './Item';
 import React, {useState, useEffect} from 'react'
+import { useParams } from 'react-router-dom';
 
 const ItemList = () => {
   
   const [productos, setProductos] = useState ([])
   const [cargando, setCargando] = useState(true)
+
+  const { categoria } = useParams()
 
   useEffect(()=>{
     const productos = () => {
@@ -16,10 +19,17 @@ const ItemList = () => {
       })
     }
     productos().then((items)=>{
-      setProductos(items)
-      setCargando(false)
+      if(categoria != null){
+        const productosFiltrados = items.filter((producto) => producto.categoria === categoria)
+        setProductos(productosFiltrados)
+        setCargando(false)
+      } else {
+        setProductos(items)
+        setCargando(false)
+      }
+      
     })
-  },[])
+  },[categoria])
 
   return(
     <>

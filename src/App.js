@@ -8,6 +8,7 @@ import {
   Route,
   Link
 } from "react-router-dom";
+import ItemList from './components/ItemList';
 
 
 export default function App() {
@@ -16,13 +17,21 @@ export default function App() {
     <div>
       <NavBar />
       <Switch>
+
       <Route path="/" exact>
         <ItemListContainer />
       </Route>
 
-      <Route path="/:categoria/:id" exact>
+      <Route path="/Item/:id" exact>
         <ItemDetailContainer titulo='Nuestros Productos' subtitulo='asd' />
       </Route>
+
+      <Route path="/:categoria/" exact>
+        <ItemList titulo='Nuestros Productos' subtitulo='asd' />
+        <ItemListContainer titulo='Nuestros Productos' subtitulo='asd' />
+      </Route>
+
+
 
 
 
