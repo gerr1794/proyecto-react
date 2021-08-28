@@ -1,56 +1,9 @@
-// import React from 'react';
-
-// import { useState, useEffect } from 'react';
-
-// export default function ItemCount({ stock, initial, onAdd }) {
-//   const [count, setCount] = useState(initial);
-
-//   const increase = () => {
-//     if (stock > count) {
-//       setCount(prevState => prevState + 1);
-//     }
-//   };
-
-//   const decrease = () => {
-//     if (count > 0) {
-//       setCount(prevState => prevState - 1);
-//     }
-//   };
-
-//   const agregarAlCarrito = () => {
-//     //onAdd(count);
-//   };
-
-//   return (
-//     <>
-//       <div className="itemCountContainer">
-//         <button
-//           className="button is-warning is-rounded addUp"
-//           disabled={count < 1}
-//           onClick={() => decrease()}
-//         >
-//           QUITAR
-//         </button>
-//         <span>....{count}....</span>
-//         <button
-//           disabled={count >= stock}
-//           className="button is-warning is-rounded takeOut"
-//           onClick={() => increase()}
-//         >
-//           AGREGAR
-//         </button>
-//       </div>
-//       <button
-//         onClick={() => agregarAlCarrito()}
-//         disabled={count < 1}
-//       >
-//         AGREGAR AL CARRITO
-//       </button>
-//     </>
-//   );
-// }
-
 import React, {useState} from 'react'
+
+
+
+const InputCount = ( onConfirm, maxQuantity) => {};
+const ButtomCount = (onConfirm, maxQuantity) => {};
 
 const ItemCount = (props) => {
   const [stock, setStock] = useState(props.stock)
@@ -76,13 +29,14 @@ const ItemCount = (props) => {
 
   }
 
+
   return (
   <div>
   <button onClick={handleStock.sumaStock} disabled={stock === '0'}>AGREGAR</button>
   <p>{unidades}</p>
   <button onClick={handleStock.restaStock} disabled={stock === '0'}>QUITAR</button>
   <p>STOCK DISPONIBLE: {stock} </p>
-  <button>AGREGAR AL CARRITO</button>
+  <button onClick ={ Agregar }>AGREGAR AL CARRITO</button>
   </div>
   )
 
