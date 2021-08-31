@@ -9,10 +9,12 @@ import {
   Link
 } from "react-router-dom";
 import ItemList from './components/ItemList';
+import CartProvider from './components/CartContext';
 
 
 export default function App() {
   return (
+    <CartProvider>
     <BrowserRouter>
     <div>
       <NavBar />
@@ -30,16 +32,12 @@ export default function App() {
         <ItemList titulo='Nuestros Productos' subtitulo='asd' />
         <ItemListContainer titulo='Nuestros Productos' subtitulo='asd' />
       </Route>
-
-
-
-
-
-
+      
       <ItemDetailContainer />
       </Switch>
     </div>
     </BrowserRouter>
+    </CartProvider>
   );
 }
 

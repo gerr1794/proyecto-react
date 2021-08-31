@@ -15,7 +15,7 @@ const ItemCount = (props) => {
         alert('¡NO HAY MAS STOCK DISPONIBLE DE ESTE PRODUCTO!')
       } else {
         setUnidades (unidades+1)
-        setStock (stock - 1)
+        //setStock (stock - 1)
       }
     },
     restaStock:()=>{
@@ -23,7 +23,7 @@ const ItemCount = (props) => {
         alert('¡NO SE PUEDE COMPRAR CANTIDADES NEGATIVAS!')
       } else {
         setUnidades (unidades -1)
-        setStock (stock + 1)
+        //setStock (stock + 1)
       }
     }
 

@@ -1,23 +1,27 @@
-import React, {useContext} from 'react'
-import ItemDetail from "./ItemDetail"
-
-const CustomContext = React.createContext()
-
-export default function CartContext() {
-    return(
+import React, { useState } from 'react'
+​
+export const CartContext = React.createContext()
+​
+export default function CartProvider({ children, defaultCart = [] }) {
+​
+    const [cart, setCart] = useState(defaultCart)
+​
+    const addItem = ({ producto, cantidad }) => {
+        setCart([...cart, {
+            producto,
+            cantidad
+        }])
+    }
+    
+    const clear = () => {
+        setCart([])
+    }
+​
+    return (
         <>
-        <CustomContext.Provider value{{ item: {} , quantity}}>
-            <TestContext />
-            <ItemDetail />
-        </CustomContext.Provider>
+            <CartContext.Provider value={{ cart, addItem }}>
+                {children}
+            </CartContext.Provider>
         </>
-    )
-}
-
-const TestContext = () => {
-    const value = useContext(CustomContext)
-    console.log(value)
-    return(
-        <div>{value.value}</div>
     )
 }
