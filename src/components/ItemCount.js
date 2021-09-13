@@ -2,8 +2,8 @@ import React, {useState} from 'react'
 
 
 
-const InputCount = ( onConfirm, maxQuantity) => {};
-const ButtomCount = (onConfirm, maxQuantity) => {};
+// const InputCount = ( onConfirm, maxQuantity) => {};
+// const ButtomCount = (onConfirm, maxQuantity) => {};
 
 const ItemCount = (props) => {
   const [stock, setStock] = useState(props.stock)
@@ -15,7 +15,6 @@ const ItemCount = (props) => {
         alert('¡NO HAY MAS STOCK DISPONIBLE DE ESTE PRODUCTO!')
       } else {
         setUnidades (unidades+1)
-        //setStock (stock - 1)
       }
     },
     restaStock:()=>{
@@ -23,7 +22,6 @@ const ItemCount = (props) => {
         alert('¡NO SE PUEDE COMPRAR CANTIDADES NEGATIVAS!')
       } else {
         setUnidades (unidades -1)
-        //setStock (stock + 1)
       }
     }
 
@@ -36,7 +34,7 @@ const ItemCount = (props) => {
   <p>{unidades}</p>
   <button onClick={handleStock.restaStock} disabled={stock === '0'}>QUITAR</button>
   <p>STOCK DISPONIBLE: {stock} </p>
-  <button onClick ={ Agregar }>AGREGAR AL CARRITO</button>
+  <button onClick = { () => props.agregar({unidades}) }>AGREGAR AL CARRITO</button>
   </div>
   )
 

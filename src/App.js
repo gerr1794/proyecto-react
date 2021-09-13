@@ -9,12 +9,12 @@ import {
   Link
 } from "react-router-dom";
 import ItemList from './components/ItemList';
-import CartProvider from './components/CartContext';
+import {carritoFuncion} from './components/CartContext';
 
 
 export default function App() {
   return (
-    <CartProvider>
+    <carritoFuncion>
     <BrowserRouter>
     <div>
       <NavBar />
@@ -22,6 +22,11 @@ export default function App() {
 
       <Route path="/" exact>
         <ItemListContainer />
+      </Route>
+
+      <Route path="/cart" exact>
+        <ItemList titulo='Nuestros Productos' subtitulo='asd' />
+        <div>prox carrito</div>
       </Route>
 
       <Route path="/Item/:id" exact>
@@ -32,12 +37,14 @@ export default function App() {
         <ItemList titulo='Nuestros Productos' subtitulo='asd' />
         <ItemListContainer titulo='Nuestros Productos' subtitulo='asd' />
       </Route>
+
+      
       
       <ItemDetailContainer />
       </Switch>
     </div>
     </BrowserRouter>
-    </CartProvider>
+    </carritoFuncion>
   );
 }
 
