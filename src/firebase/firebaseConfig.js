@@ -18,8 +18,15 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore();
 
+export const ItemsTot = () => {
+  const consulta = getDocs(collection(db, "items"))
+  return consulta;
+}
 
-const querySnapshot = await getDocs(collection(db, "Items"));
-querySnapshot.forEach((doc) => {
-  console.log(`${doc.id} => ${doc.data()}`);
-});
+export const Categ = (categoria) => {
+  const consulta = collection(db, "items")
+  const consulta2 = consulta(consulta, where("categoria", "==", categoria))
+  const consulta3 = getDocs(consulta2)
+  return consulta3;
+}
+

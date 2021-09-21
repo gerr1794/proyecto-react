@@ -1,10 +1,10 @@
-import data from '../../src/data/data';
 import Item from './Item';
 import React, {useState, useEffect} from 'react'
 import { useParams } from 'react-router-dom';
+import { Categ, ItemsTot } from '../firebase/firebaseConfig';
 
 const ItemList = () => {
-  
+
   const [productos, setProductos] = useState ([])
   const [cargando, setCargando] = useState(true)
 
@@ -12,23 +12,44 @@ const ItemList = () => {
 
   useEffect(()=>{
     const productos = () => {
-      return new Promise((resolve, reject)=>{
-        setTimeout(()=>{
-          resolve(data)
-        },4000)
-      })
-    }
-    productos().then((items)=>{
       if(categoria != null){
-        const productosFiltrados = items.filter((producto) => producto.categoria === categoria)
-        setProductos(productosFiltrados)
-        setCargando(false)
-      } else {
-        setProductos(items)
-        setCargando(false)
+        const items= Categ();
+        items.then((data)=>{
+          const Aux = []
+          data.forEach(Item => {
+            Aux.push({id:Item.id,
+            titulo:Item.data().titulo,
+            precio:Item.data().precio,
+            imagen:Item.data().imagen,
+            stock:Item.data().stock
+
+          })
+          })
+          setProductos(Aux)
+          setCargando(fasle)
+        
       }
       
-    })
+        )}
+      } else {
+        const items= ItemsTot();
+        items.then((data)=>{
+          const Aux = []
+          data.forEach(Item => {
+            Aux.push({id:Item.id,
+            titulo:Item.data().titulo,
+            precio:Item.data().precio,
+            imagen:Item.data().imagen,
+            stock:Item.data().stock
+
+          })
+          })
+          setProductos(Aux)
+          setCargando(fasle)
+        
+      }
+      
+        )}
   },[categoria])
 
   return(
